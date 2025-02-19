@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\EcommerceApiSrc.Application\EcommerceApiSrc.Application.csproj" />
     <ProjectReference Include="..\..\Core\EcommerceApiSrc.Domain\EcommerceApiSrc.Domain.csproj" />
   </ItemGroup>
 
