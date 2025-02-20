@@ -1,4 +1,5 @@
 using EcommerceApiSrc.Persistence;
+using EcommerceApiSrc.Application;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -15,7 +16,7 @@ builder.Configuration.SetBasePath(environment.ContentRootPath)
                      .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", optional: true);
 
 builder.Services.AddPersistence(builder.Configuration);
-
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
