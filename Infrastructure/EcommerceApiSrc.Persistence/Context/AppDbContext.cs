@@ -24,6 +24,7 @@ namespace EcommerceApiSrc.Persistence.Context
         public DbSet<Category> Category { get; set; }
         public DbSet<Detail> Detail { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<CategoryProduct> CategoryProduct { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

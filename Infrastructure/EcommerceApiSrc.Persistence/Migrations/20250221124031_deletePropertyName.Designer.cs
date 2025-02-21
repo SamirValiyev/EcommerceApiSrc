@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcommerceApiSrc.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250219154639_initalCreate")]
-    partial class initalCreate
+    [Migration("20250221124031_deletePropertyName")]
+    partial class deletePropertyName
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,21 +24,6 @@ namespace EcommerceApiSrc.Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("CategoryProduct", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("CategoryProduct");
-                });
 
             modelBuilder.Entity("EcommerceApiSrc.Domain.Entities.Brand", b =>
                 {
@@ -67,23 +52,23 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 211, DateTimeKind.Local).AddTicks(2119),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(535),
                             IsDeleted = false,
-                            Name = "oyunlar, Elektronika & садинструмент"
+                            Name = "Filmlər & İdman"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 211, DateTimeKind.Local).AddTicks(2125),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(544),
                             IsDeleted = false,
-                            Name = "Avtomobil"
+                            Name = "turizm & oyunlar"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 211, DateTimeKind.Local).AddTicks(2129),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(549),
                             IsDeleted = true,
-                            Name = "oyunlar"
+                            Name = "Geyim"
                         });
                 });
 
@@ -119,7 +104,7 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 211, DateTimeKind.Local).AddTicks(3534),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(2899),
                             IsDeleted = false,
                             Name = "Elektrik",
                             ParentId = 0,
@@ -128,7 +113,7 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 211, DateTimeKind.Local).AddTicks(3536),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(2901),
                             IsDeleted = false,
                             Name = "Trend",
                             ParentId = 0,
@@ -137,7 +122,7 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 211, DateTimeKind.Local).AddTicks(3538),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(2902),
                             IsDeleted = false,
                             Name = "Komputer",
                             ParentId = 1,
@@ -146,12 +131,36 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 211, DateTimeKind.Local).AddTicks(3539),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(2904),
                             IsDeleted = false,
                             Name = "Qadın",
                             ParentId = 2,
                             Priority = 1
                         });
+                });
+
+            modelBuilder.Entity("EcommerceApiSrc.Domain.Entities.CategoryProduct", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("CategoryProduct");
                 });
 
             modelBuilder.Entity("EcommerceApiSrc.Domain.Entities.Detail", b =>
@@ -175,9 +184,6 @@ namespace EcommerceApiSrc.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -193,28 +199,28 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 213, DateTimeKind.Local).AddTicks(866),
-                            Description = "Hic est ut qui dolorem.",
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 846, DateTimeKind.Local).AddTicks(875),
+                            Description = "Voluptas non repellendus est inventore.",
                             IsDeleted = false,
-                            Title = "Sunt."
+                            Title = "Autem."
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 213, DateTimeKind.Local).AddTicks(903),
-                            Description = "Harum non quo non dolore.",
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 846, DateTimeKind.Local).AddTicks(932),
+                            Description = "Ea quis nisi consequatur ut.",
                             IsDeleted = true,
-                            Title = "Est quas."
+                            Title = "Quo suscipit."
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 213, DateTimeKind.Local).AddTicks(931),
-                            Description = "Nam distinctio repellendus ut accusamus.",
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 846, DateTimeKind.Local).AddTicks(975),
+                            Description = "Quae debitis ut nostrum quod.",
                             IsDeleted = false,
-                            Title = "Esse."
+                            Title = "Doloremque."
                         });
                 });
 
@@ -242,9 +248,6 @@ namespace EcommerceApiSrc.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -263,39 +266,43 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         {
                             Id = 1,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 214, DateTimeKind.Local).AddTicks(4402),
-                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-                            Discount = 7.63176016139260m,
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 848, DateTimeKind.Local).AddTicks(9702),
+                            Description = "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+                            Discount = 5.841671885081830m,
                             IsDeleted = false,
-                            Price = 49.13m,
-                            Title = "İntellektual Rezin Sviter"
+                            Price = 650.59m,
+                            Title = "İntellektual Beton Kompyuter"
                         },
                         new
                         {
                             Id = 2,
                             BrandId = 3,
-                            CreatedDate = new DateTime(2025, 2, 19, 19, 46, 39, 214, DateTimeKind.Local).AddTicks(4424),
-                            Description = "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-                            Discount = 8.132927523955060m,
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 848, DateTimeKind.Local).AddTicks(9723),
+                            Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+                            Discount = 6.117400569105820m,
                             IsDeleted = false,
-                            Price = 852.59m,
-                            Title = "Fantastik Ağac Beret"
+                            Price = 480.21m,
+                            Title = "İnanılmaz Ağac Stul"
                         });
                 });
 
-            modelBuilder.Entity("CategoryProduct", b =>
+            modelBuilder.Entity("EcommerceApiSrc.Domain.Entities.CategoryProduct", b =>
                 {
-                    b.HasOne("EcommerceApiSrc.Domain.Entities.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
+                    b.HasOne("EcommerceApiSrc.Domain.Entities.Category", "Category")
+                        .WithMany("CategoryProduct")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EcommerceApiSrc.Domain.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
+                    b.HasOne("EcommerceApiSrc.Domain.Entities.Product", "Product")
+                        .WithMany("CategoryProduct")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("EcommerceApiSrc.Domain.Entities.Detail", b =>
@@ -322,7 +329,14 @@ namespace EcommerceApiSrc.Persistence.Migrations
 
             modelBuilder.Entity("EcommerceApiSrc.Domain.Entities.Category", b =>
                 {
+                    b.Navigation("CategoryProduct");
+
                     b.Navigation("Details");
+                });
+
+            modelBuilder.Entity("EcommerceApiSrc.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("CategoryProduct");
                 });
 #pragma warning restore 612, 618
         }

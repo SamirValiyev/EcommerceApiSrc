@@ -4,6 +4,7 @@ using EcommerceApiSrc.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcommerceApiSrc.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250221123418_initalCreate")]
+    partial class initalCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,23 +52,23 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(535),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 959, DateTimeKind.Local).AddTicks(2993),
                             IsDeleted = false,
-                            Name = "Filmlər & İdman"
+                            Name = "Kompyuterlər"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(544),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 959, DateTimeKind.Local).AddTicks(3034),
                             IsDeleted = false,
-                            Name = "turizm & oyunlar"
+                            Name = "Avtomobil & Avtomobil"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(549),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 959, DateTimeKind.Local).AddTicks(3043),
                             IsDeleted = true,
-                            Name = "Geyim"
+                            Name = "İdman & Kompyuterlər"
                         });
                 });
 
@@ -101,7 +104,7 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(2899),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 959, DateTimeKind.Local).AddTicks(4463),
                             IsDeleted = false,
                             Name = "Elektrik",
                             ParentId = 0,
@@ -110,7 +113,7 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(2901),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 959, DateTimeKind.Local).AddTicks(4465),
                             IsDeleted = false,
                             Name = "Trend",
                             ParentId = 0,
@@ -119,7 +122,7 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(2902),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 959, DateTimeKind.Local).AddTicks(4466),
                             IsDeleted = false,
                             Name = "Komputer",
                             ParentId = 1,
@@ -128,7 +131,7 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 842, DateTimeKind.Local).AddTicks(2904),
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 959, DateTimeKind.Local).AddTicks(4467),
                             IsDeleted = false,
                             Name = "Qadın",
                             ParentId = 2,
@@ -152,6 +155,9 @@ namespace EcommerceApiSrc.Persistence.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId", "CategoryId");
 
@@ -181,6 +187,9 @@ namespace EcommerceApiSrc.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -196,28 +205,28 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 846, DateTimeKind.Local).AddTicks(875),
-                            Description = "Voluptas non repellendus est inventore.",
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 961, DateTimeKind.Local).AddTicks(9019),
+                            Description = "Consequatur ducimus reprehenderit asperiores velit.",
                             IsDeleted = false,
-                            Title = "Autem."
+                            Title = "Sit."
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 846, DateTimeKind.Local).AddTicks(932),
-                            Description = "Ea quis nisi consequatur ut.",
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 961, DateTimeKind.Local).AddTicks(9052),
+                            Description = "Iste aperiam et repellat fugiat.",
                             IsDeleted = true,
-                            Title = "Quo suscipit."
+                            Title = "Numquam adipisci."
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 846, DateTimeKind.Local).AddTicks(975),
-                            Description = "Quae debitis ut nostrum quod.",
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 961, DateTimeKind.Local).AddTicks(9079),
+                            Description = "Et delectus nemo voluptatem non.",
                             IsDeleted = false,
-                            Title = "Doloremque."
+                            Title = "Occaecati."
                         });
                 });
 
@@ -245,6 +254,9 @@ namespace EcommerceApiSrc.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -263,23 +275,23 @@ namespace EcommerceApiSrc.Persistence.Migrations
                         {
                             Id = 1,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 848, DateTimeKind.Local).AddTicks(9702),
-                            Description = "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-                            Discount = 5.841671885081830m,
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 963, DateTimeKind.Local).AddTicks(4165),
+                            Description = "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+                            Discount = 9.331896863422370m,
                             IsDeleted = false,
-                            Price = 650.59m,
-                            Title = "İntellektual Beton Kompyuter"
+                            Price = 990.55m,
+                            Title = "İnanılmaz Beton Avtomobil"
                         },
                         new
                         {
                             Id = 2,
                             BrandId = 3,
-                            CreatedDate = new DateTime(2025, 2, 21, 16, 40, 30, 848, DateTimeKind.Local).AddTicks(9723),
-                            Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-                            Discount = 6.117400569105820m,
+                            CreatedDate = new DateTime(2025, 2, 21, 16, 34, 17, 963, DateTimeKind.Local).AddTicks(4235),
+                            Description = "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+                            Discount = 0.9204918066321520m,
                             IsDeleted = false,
-                            Price = 480.21m,
-                            Title = "İnanılmaz Ağac Stul"
+                            Price = 101.63m,
+                            Title = "İntellektual Ağac Avtomobil"
                         });
                 });
 
