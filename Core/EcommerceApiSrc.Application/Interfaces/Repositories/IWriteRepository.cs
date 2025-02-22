@@ -13,6 +13,7 @@ namespace EcommerceApiSrc.Application.Interfaces.Repositories
         Task<T> UpdateAsync(T entity);
         Task AddRangeAsync(IList<T> entities);
         Task HardDeleteAsync(T entity);
+        Task HardDeleteRangeAsync(IList<T> entities);
 
 
     }
